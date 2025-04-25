@@ -17,11 +17,13 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@catppuccin/daisyui": "^2.1.1",
     "@catppuccin/tailwindcss": "1.0.0-beta.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "daisyui": "^5.0.28",
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4",
     "tailwindcss-motion": "^1.1.0",
