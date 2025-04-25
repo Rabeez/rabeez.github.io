@@ -13,6 +13,7 @@ export default function NavBar() {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
+              {/* TODO: make tooltip enter/exit transitions faster */}
               <div
                 className="tooltip-neutral tooltip tooltip-bottom"
                 data-tip={"Resume"}
