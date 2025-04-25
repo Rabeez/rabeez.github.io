@@ -5,7 +5,7 @@ export default function Home() {
         <div className="list-inside list-decimal text-center font-[family-name:var(--font-geist-mono)] text-lg">
           Hello @, World!
         </div>
-        <div className="text-ctp-mauve-700">
+        <div className="motion-blur-in-md motion-opacity-in-0 motion-translate-y-in-100 text-ctp-mauve-700">
           a@nother <span className="italic">one@</span>
         </div>
       </main>

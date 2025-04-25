@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@catppuccin/tailwindcss/mocha.css";
+@plugin "tailwindcss-motion";
 
 /* maple-mono-latin-400-normal */
 @font-face {
