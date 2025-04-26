@@ -17,7 +17,10 @@ export default function Home() {
   const modals: ModalRegistry = {
     alpha: {
       Button: ({ open }) => (
-        <button className="btn" onClick={open}>
+        <button
+          className="btn motion-preset-pulse-sm motion-delay-0"
+          onClick={open}
+        >
           Alpha
         </button>
       ),
@@ -25,7 +28,10 @@ export default function Home() {
     },
     beta: {
       Button: ({ open }) => (
-        <button className="btn" onClick={open}>
+        <button
+          className="btn motion-preset-pulse-sm motion-delay-100"
+          onClick={open}
+        >
           Beta
         </button>
       ),
