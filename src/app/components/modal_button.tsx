@@ -3,12 +3,14 @@
 type ModalButtonProps = {
   modalId: string;
   modalContent: React.ReactNode;
+  modalHeader: React.ReactNode;
   renderButtonAction: (onClick: () => void) => React.ReactNode;
 };
 
 export default function ModalButton({
   modalId,
   modalContent,
+  modalHeader,
   renderButtonAction,
 }: ModalButtonProps) {
   const openModal = () => {
@@ -19,7 +21,10 @@ export default function ModalButton({
     <>
       {renderButtonAction(openModal)}
       <dialog id={modalId} className="modal">
-        <div className="fixed top-1/10 left-3/10 modal-box h-4/5 max-w-[65%]">
+        <div className="fixed top-1/10 left-3/10 modal-box h-4/5 max-w-[65%] overflow-visible">
+          <div className="relative -translate-x-2/5 translate-y-100">
+            {modalHeader}
+          </div>
           {modalContent}
         </div>
         <form
