@@ -19,7 +19,9 @@ export default function ModalButton({
     <>
       {renderButtonAction(openModal)}
       <dialog id={modalId} className="modal">
-        <div className="modal-box">{modalContent}</div>
+        <div className="fixed top-1/10 left-3/10 modal-box h-4/5 max-w-[65%]">
+          {modalContent}
+        </div>
         <form
           method="dialog"
           className="modal-backdrop bg-ctp-base/30 backdrop-blur-xs"
