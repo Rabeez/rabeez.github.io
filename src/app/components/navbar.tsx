@@ -5,8 +5,8 @@ import ThemeController from "./theme_controller";
 
 export default function NavBar() {
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
+    <>
+      <div className="navbar motion-preset-focus motion-duration-1000">
         <div className="flex-1">
           <a className="btn text-xl btn-ghost">Rabeez Riaz</a>
         </div>
@@ -59,6 +59,6 @@ export default function NavBar() {
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 }

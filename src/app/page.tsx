@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <>
       <NavBar />
       <div className="p-4">
         {Object.entries(modals).map(([modalId, { Button, Modal }]) => (
@@ -46,6 +46,6 @@ export default function Home() {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }
