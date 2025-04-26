@@ -15,7 +15,7 @@ type ModalRegistry = {
 // value:
 //    Button: content of button
 //    Modal: content of modal
-const btn_classes = "btn motion-preset-pulse-sm";
+const btn_classes = "btn motion-preset-pulse-sm h-40 w-60";
 const modals: ModalRegistry = {
   alpha: {
     Button: ({ open }) => (
