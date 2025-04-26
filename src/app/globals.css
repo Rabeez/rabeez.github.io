@@ -57,3 +57,11 @@ body {
   /* color: var(--foreground); */
   font-family: "Maple Mono", sans-serif;
 }
+
+@layer utilities {
+  .modal-backdrop {
+    & button {
+      @apply cursor-default;
+    }
+  }
+}

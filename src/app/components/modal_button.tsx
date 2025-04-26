@@ -20,7 +20,10 @@ export default function ModalButton({
       {renderButtonAction(openModal)}
       <dialog id={modalId} className="modal">
         <div className="modal-box">{modalContent}</div>
-        <form method="dialog" className="modal-backdrop">
+        <form
+          method="dialog"
+          className="modal-backdrop bg-ctp-base/30 backdrop-blur-xs"
+        >
           <button>close</button>
         </form>
       </dialog>
