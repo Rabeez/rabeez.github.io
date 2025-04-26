@@ -6,12 +6,12 @@ import ThemeController from "./theme_controller";
 export default function NavBar() {
   return (
     <>
-      <div className="navbar h-[5%] motion-preset-focus motion-duration-1000">
+      <div className="navbar h-[5%] motion-preset-focus place-items-center motion-duration-1000">
         <div className="flex-1">
           <a className="btn text-xl btn-ghost">Rabeez Riaz</a>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal place-items-center px-1">
             <li>
               {/* TODO: make tooltip enter/exit transitions faster */}
               <div
