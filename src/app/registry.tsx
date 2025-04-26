@@ -1,6 +1,7 @@
 import { JSX } from "react";
 import SpecialModalContentAlpha from "./components/SpecialModalContentAlpha";
 import SpecialModalContentBeta from "./components/SpecialModalContentBeta";
+import ModalButton from "./components/modal_button";
 
 type ModalRegistry = {
   [modalId: string]: {
@@ -44,4 +45,17 @@ const modals: ModalRegistry = {
   },
 };
 
-export default modals;
+function make_modal(modal_id: string): JSX.Element {
+  let Btn = modals[modal_id].Button;
+  return (
+    <ModalButton
+      key={modal_id}
+      modalId={modal_id}
+      modalContent={modals[modal_id].Modal}
+      modalHeader={modals[modal_id].Header}
+      renderButtonAction={(open) => <Btn open={open} />}
+    />
+  );
+}
+
+export default make_modal;

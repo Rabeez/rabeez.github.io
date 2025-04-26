@@ -1,8 +1,7 @@
 "use client";
 
 import NavBar from "./components/navbar";
-import ModalButton from "./components/modal_button";
-import modals from "./registry";
+import make_modal from "./registry";
 
 export default function Home() {
   return (
@@ -14,17 +13,24 @@ export default function Home() {
       >
         <div className="col-span-2 block h-full w-full bg-red-300">asdasf</div>
         <div className="col-span-3 block h-full w-full bg-green-300">
-          {Object.entries(modals).map(
-            ([modalId, { Button, Modal, Header }]) => (
-              <ModalButton
-                key={modalId}
-                modalId={modalId}
-                modalContent={Modal}
-                modalHeader={Header}
-                renderButtonAction={(open) => <Button open={open} />}
-              />
-            ),
-          )}
+          <div className="col-span-1 grid h-full w-full grid-cols-3">
+            <div className="col-span-1 grid grid-rows-3 place-items-center p-10">
+              {make_modal("alpha")}
+              {make_modal("beta")}
+              {make_modal("beta")}
+            </div>
+            <div className="col-span-1 grid grid-rows-4 place-items-center p-10">
+              {make_modal("alpha")}
+              {make_modal("beta")}
+              {make_modal("beta")}
+              {make_modal("beta")}
+            </div>
+            <div className="col-span-1 grid grid-rows-3 place-items-center p-10">
+              {make_modal("alpha")}
+              {make_modal("beta")}
+              {make_modal("beta")}
+            </div>
+          </div>
         </div>
       </div>
     </>
