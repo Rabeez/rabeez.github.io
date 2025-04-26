@@ -9,6 +9,10 @@ type ModalRegistry = {
   };
 };
 
+// key: HTML ID of modal
+// value:
+//    Button: content of button
+//    Modal: content of modal
 const modals: ModalRegistry = {
   alpha: {
     Button: ({ open }) => (
