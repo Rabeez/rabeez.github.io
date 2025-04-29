@@ -16,6 +16,14 @@ export default function Home() {
           <article className="prose prose-lg">
             <h1 className="text-ctp-mauve-600">Rabeez Riaz</h1>
             <Menu />
+            <h4 className="text-ctp-mauve-600 italic">
+              Professionally stirring a pile of Linear Algebra and Statistics.
+            </h4>
+            <h6 className="text-ctp-mauve-600 italic">
+              <a href="https://xkcd.com/1838" target="_blank">
+                Obligatory XKCD
+              </a>
+            </h6>
             <p>
               I am a Data Scientist with {new Date().getFullYear() - 2018} years
               of experience and multiple projects under my belt covering
