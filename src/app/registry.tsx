@@ -1,7 +1,7 @@
 import { JSX } from "react";
-import SpecialModalContentAlpha from "./components/SpecialModalContentAlpha";
-import SpecialModalContentBeta from "./components/SpecialModalContentBeta";
 import ModalButton from "./components/modal_button";
+import SpecialModalContentAlpha from "./components/modals/SpecialModalContentAlpha";
+import SpecialModalContentBeta from "./components/modals/SpecialModalContentBeta";
 
 type ModalId =
   | "machine_learning"
