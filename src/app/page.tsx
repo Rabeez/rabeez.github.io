@@ -66,20 +66,20 @@ export default function Home() {
         <div className="col-span-3 block h-full w-full">
           <div className="col-span-1 grid h-full w-full grid-cols-3">
             <div className="col-span-1 grid h-full grid-rows-3 place-items-center p-10">
-              {make_modal("alpha")}
-              {make_modal("beta")}
-              {make_modal("beta")}
+              {make_modal("machine_learning")}
+              {make_modal("data_viz")}
+              {make_modal("translator")}
             </div>
             <div className="col-span-1 grid grid-rows-4 place-items-center p-10">
-              {make_modal("alpha")}
-              {make_modal("beta")}
-              {make_modal("beta")}
-              {make_modal("beta")}
+              {make_modal("specialized")}
+              {make_modal("data_pipes")}
+              {make_modal("causal")}
+              {make_modal("teaching")}
             </div>
             <div className="col-span-1 grid grid-rows-3 place-items-center p-10">
-              {make_modal("alpha")}
-              {make_modal("beta")}
-              {make_modal("beta")}
+              {make_modal("engineering")}
+              {make_modal("custom_tools")}
+              {make_modal("web_dev")}
             </div>
           </div>
         </div>

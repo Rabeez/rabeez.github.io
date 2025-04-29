@@ -3,8 +3,19 @@ import SpecialModalContentAlpha from "./components/SpecialModalContentAlpha";
 import SpecialModalContentBeta from "./components/SpecialModalContentBeta";
 import ModalButton from "./components/modal_button";
 
+type ModalId =
+  | "machine_learning"
+  | "data_viz"
+  | "translator"
+  | "specialized"
+  | "data_pipes"
+  | "causal"
+  | "teaching"
+  | "engineering"
+  | "custom_tools"
+  | "web_dev";
 type ModalRegistry = {
-  [modalId: string]: {
+  [K in ModalId]: {
     Button: (props: { open: () => void }) => JSX.Element;
     Modal: JSX.Element;
     Header: JSX.Element;
@@ -17,35 +28,139 @@ type ModalRegistry = {
 //    Modal: content of modal
 const btn_classes = "btn motion-preset-pulse-sm h-40 w-60";
 const modals: ModalRegistry = {
-  alpha: {
+  machine_learning: {
     Button: ({ open }) => (
       <button className={btn_classes + " motion-delay-0"} onClick={open}>
-        Alpha
+        Machine Learning
       </button>
     ),
     Modal: <SpecialModalContentAlpha />,
     Header: (
       <>
-        <h1>ALPHA asdfdsa</h1>
+        <h1>Machine Learning</h1>
       </>
     ),
   },
-  beta: {
+  data_viz: {
     Button: ({ open }) => (
       <button className={btn_classes + " motion-delay-100"} onClick={open}>
-        Beta
+        Data Visualization &amp; Reporting
       </button>
     ),
     Modal: <SpecialModalContentBeta />,
     Header: (
       <>
-        <h1>BETA asdfdsa</h1>
+        <h1>Data Visualization &amp; Reporting</h1>
       </>
     ),
   },
-};
+  translator: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Analytical Translation
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Analytical Translation</h1>
+      </>
+    ),
+  },
+  specialized: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Specialized Analytics
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Specialized Analytics</h1>
+      </>
+    ),
+  },
+  data_pipes: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Data Pipelines
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Data Pipelines</h1>
+      </>
+    ),
+  },
+  causal: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Causal Inference
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Causal Inference</h1>
+      </>
+    ),
+  },
+  teaching: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Teaching
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Teaching</h1>
+      </>
+    ),
+  },
+  engineering: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Engineering
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Engineering</h1>
+      </>
+    ),
+  },
+  custom_tools: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Custom Tooling
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Custom Tooling</h1>
+      </>
+    ),
+  },
+  web_dev: {
+    Button: ({ open }) => (
+      <button className={btn_classes + " motion-delay-100"} onClick={open}>
+        Web Development
+      </button>
+    ),
+    Modal: <SpecialModalContentBeta />,
+    Header: (
+      <>
+        <h1>Web Development</h1>
+      </>
+    ),
+  },
+} as const;
 
-function make_modal(modal_id: string): JSX.Element {
+function make_modal(modal_id: ModalId): JSX.Element {
   let Btn = modals[modal_id].Button;
   return (
     <ModalButton
