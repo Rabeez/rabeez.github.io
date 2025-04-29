@@ -29,7 +29,7 @@ export default function ModalButton({
         </div>
         <form
           method="dialog"
-          className="modal-backdrop bg-ctp-base/30 backdrop-blur-xs"
+          className="modal-backdrop bg-ctp-base/30 backdrop-blur-md"
         >
           <button>close</button>
         </form>
