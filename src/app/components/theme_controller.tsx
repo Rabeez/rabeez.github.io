@@ -16,7 +16,7 @@ export default function ThemeController() {
   };
 
   return (
-    <div className="absolute right-0 pt-2 pr-2">
+    <div className="absolute right-0 motion-preset-focus pt-2 pr-2 motion-duration-1000">
       <div
         className="tooltip tooltip-left tooltip-primary"
         data-tip={"Set " + (theme == "mocha" ? "light" : "dark") + " mode"}

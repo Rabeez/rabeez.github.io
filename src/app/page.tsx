@@ -10,7 +10,7 @@ export default function Home() {
       <ThemeController />
       <div
         id="content"
-        className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0"
+        className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0 font-medium"
       >
         <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-10 motion-duration-1000">
           <article className="prose prose-lg">
@@ -19,9 +19,13 @@ export default function Home() {
             <h4 className="text-ctp-mauve-600 italic">
               Professionally stirring a pile of Linear Algebra and Statistics.
             </h4>
-            <h6 className="text-ctp-mauve-600 italic">
-              <a href="https://xkcd.com/1838" target="_blank">
-                Obligatory XKCD
+            <h6 className="italic">
+              <a
+                href="https://xkcd.com/1838"
+                target="_blank"
+                className="text-ctp-mauve-600 no-underline"
+              >
+                -- Obligatory XKCD
               </a>
             </h6>
             <p>
