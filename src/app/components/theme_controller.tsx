@@ -18,7 +18,7 @@ export default function ThemeController() {
   return (
     <div className="absolute right-0 pt-2 pr-2">
       <div
-        className="tooltip-neutral tooltip tooltip-bottom"
+        className="tooltip tooltip-left tooltip-primary"
         data-tip={"Set " + (theme == "mocha" ? "light" : "dark") + " mode"}
       >
         <label className="swap swap-rotate">

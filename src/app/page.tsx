@@ -12,9 +12,9 @@ export default function Home() {
         id="content"
         className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0"
       >
-        <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-8 motion-duration-1000">
+        <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-10 motion-duration-1000">
           <article className="prose prose-lg">
-            <h1>Rabeez Riaz</h1>
+            <h1 className="text-ctp-mauve-600">Rabeez Riaz</h1>
             <Menu />
             <p>
               I am a Data Scientist with {new Date().getFullYear() - 2018} years
@@ -35,32 +35,45 @@ export default function Home() {
               machine learning and purpose-built web scrapping data stores to
               standalone analytical dashboards using open-source tools.
             </p>
-            <div tabIndex={0} className="collapse bg-base-100">
-              <div className="collapse-title font-semibold">Tools</div>
+            <div tabIndex={0} className="collapse">
+              <div className="collapse-title font-semibold text-ctp-mauve-600">
+                Tools
+              </div>
               <div className="collapse-content text-sm">
                 <p>
-                  <span className="font-bold">Analytics:</span> pandas, NumPy,
-                  Polars, scikit-learn, XGBoost, TensorFlow, PyTorch, dplyr,
-                  Pdyr, Pdymodels, NLTK, spaCy, OpenCV, GeoPandas, PyMC3,
-                  Jupyter, Kedro, PySpark, NetworkX, PuLP
+                  <span className="font-bold text-ctp-mauve-600">
+                    Analytics:
+                  </span>{" "}
+                  pandas, NumPy, Polars, scikit-learn, XGBoost, TensorFlow,
+                  PyTorch, dplyr, Pdyr, Pdymodels, NLTK, spaCy, OpenCV,
+                  GeoPandas, PyMC3, Jupyter, Kedro, PySpark, NetworkX, PuLP
                 </p>
                 <p>
-                  <span className="font-bold">Visualization:</span>
+                  <span className="font-bold text-ctp-mauve-600">
+                    Visualization:
+                  </span>
                   Matplotlib, Seaborn, Plotly, Dash, Altair, Streamlit, ggplot2,
                   Vega, Tableau, nxviz
                 </p>
 
                 <p>
-                  <span className="font-bold">Languages:</span> Python, R, SQL,
-                  Go, JavaScript
+                  <span className="font-bold text-ctp-mauve-600">
+                    Languages:
+                  </span>{" "}
+                  Python, R, SQL, Go, JavaScript
                 </p>
                 <p>
-                  <span className="font-bold">Web Development:</span> Flask,
-                  FastAPI, HTMX, Node.js, Jinja, Templ, Tailwind CSS
+                  <span className="font-bold text-ctp-mauve-600">
+                    Web Development:
+                  </span>{" "}
+                  Flask, FastAPI, HTMX, Node.js, Jinja, Templ, Tailwind CSS
                 </p>
                 <p>
-                  <span className="font-bold">Developer Tools:</span> Git,
-                  Linux, Docker, CI/CD, Automated TesPng, Makefiles, Selenium
+                  <span className="font-bold text-ctp-mauve-600">
+                    Developer Tools:
+                  </span>{" "}
+                  Git, Linux, Docker, CI/CD, Automated TesPng, Makefiles,
+                  Selenium
                 </p>
               </div>
             </div>
