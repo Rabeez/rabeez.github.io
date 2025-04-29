@@ -4,24 +4,40 @@ export default function Menu() {
   return (
     <div className="place-items-center">
       <div className="tooltip tooltip-primary" data-tip={"Resume"}>
-        <button className="btn text-ctp-mauve-600 btn-ghost">
+        <a
+          href="file_not_found"
+          target="_blank"
+          className="btn text-ctp-mauve-600 btn-ghost"
+        >
           <FileUser />
-        </button>
+        </a>
       </div>
       <div className="tooltip tooltip-primary" data-tip={"Blog"}>
-        <button className="btn text-ctp-mauve-600 btn-ghost">
+        <a
+          href="https://rabeez.substack.com/"
+          target="_blank"
+          className="btn text-ctp-mauve-600 btn-ghost"
+        >
           <NotebookPen />
-        </button>
+        </a>
       </div>
       <div className="tooltip tooltip-primary" data-tip={"GitHub"}>
-        <button className="btn text-ctp-mauve-600 btn-ghost">
+        <a
+          href="https://github.com/Rabeez/"
+          target="_blank"
+          className="btn text-ctp-mauve-600 btn-ghost"
+        >
           <Github />
-        </button>
+        </a>
       </div>
       <div className="tooltip tooltip-primary" data-tip={"LinkedIn"}>
-        <button className="btn text-ctp-mauve-600 btn-ghost">
+        <a
+          href="https://www.linkedin.com/in/rabeez/"
+          target="_blank"
+          className="btn text-ctp-mauve-600 btn-ghost"
+        >
           <Linkedin />
-        </button>
+        </a>
       </div>
     </div>
   );
