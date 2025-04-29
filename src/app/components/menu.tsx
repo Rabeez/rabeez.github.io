@@ -5,8 +5,9 @@ export default function Menu() {
     <div className="place-items-center">
       <div className="tooltip tooltip-primary" data-tip={"Resume"}>
         <a
-          href="file_not_found"
+          href="/rabeez_riaz_cv.pdf"
           target="_blank"
+          download="rabeez_riaz_cv"
           className="btn text-ctp-mauve-600 btn-ghost"
         >
           <FileUser />
