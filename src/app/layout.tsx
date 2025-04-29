@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full w-full">
       <body
-        className="h-full min-h-full w-full min-w-full overflow-hidden antialiased"
+        className="fluid h-full min-h-full w-full min-w-full overflow-hidden antialiased"
         data-theme="mocha"
       >
         {children}

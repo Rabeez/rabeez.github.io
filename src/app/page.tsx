@@ -13,7 +13,7 @@ export default function Home() {
         className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0 font-medium"
       >
         <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-10 motion-duration-1000">
-          <article className="prose prose-lg">
+          <article className="prose prose-sm lg:prose-lg">
             <h1 className="text-ctp-mauve-600">Rabeez Riaz</h1>
             <Menu />
             <h4 className="text-ctp-mauve-600 italic">
