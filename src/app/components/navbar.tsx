@@ -53,9 +53,7 @@ export default function NavBar() {
                 </a>
               </div>
             </li>
-            <li>
-              <ThemeController />
-            </li>
+            <li></li>
           </ul>
         </div>
       </div>

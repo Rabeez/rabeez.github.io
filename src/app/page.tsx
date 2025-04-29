@@ -1,18 +1,21 @@
 "use client";
 
-import NavBar from "./components/navbar";
+import Menu from "./components/menu";
+import ThemeController from "./components/theme_controller";
 import make_modal from "./registry";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
+      <ThemeController />
       <div
         id="content"
         className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0"
       >
         <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-8 motion-duration-1000">
           <article className="prose prose-lg">
+            <h1>Rabeez Riaz</h1>
+            <Menu />
             <p>
               I am a Data Scientist with {new Date().getFullYear() - 2018} years
               of experience and multiple projects under my belt covering
