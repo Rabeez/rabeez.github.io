@@ -6,11 +6,11 @@ import ThemeController from "@/app/components/theme_controller";
 
 export default function DesktopComponent() {
   return (
-    <>
+    <div className="overflow-hidden">
       <ThemeController />
       <div
         id="content"
-        className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0 font-medium"
+        className="grid h-[95%] w-full min-w-full grid-cols-5 gap-0 pt-30 font-medium"
       >
         <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-10 motion-duration-1000">
           <article className="prose prose-sm lg:prose-lg">
@@ -112,6 +112,6 @@ export default function DesktopComponent() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

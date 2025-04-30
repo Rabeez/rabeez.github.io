@@ -6,8 +6,10 @@ import ThemeController from "@/app/components/theme_controller";
 export default function MobileComponent() {
   return (
     <div className="p-6">
-      <ThemeController />
-      <MobileHeader />
+      <div>
+        <ThemeController />
+        <MobileHeader />
+      </div>
       <div className="absolute top-40">
         <article className="prose prose-sm lg:prose-lg">
           <h4 className="text-ctp-mauve-600 italic">
