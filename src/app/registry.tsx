@@ -160,7 +160,11 @@ const modals: ModalRegistry = {
   },
 } as const;
 
-function make_modal(modal_id: ModalId): JSX.Element {
+interface ModalProps {
+  modal_id: ModalId;
+}
+
+export default function Modal({ modal_id }: ModalProps) {
   let Btn = modals[modal_id].Button;
   return (
     <ModalButton
@@ -172,5 +176,3 @@ function make_modal(modal_id: ModalId): JSX.Element {
     />
   );
 }
-
-export default make_modal;

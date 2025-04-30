@@ -1,6 +1,6 @@
 "use client";
 
-import make_modal from "@/app/registry";
+import Modal from "@/app/registry";
 import Menu from "@/app/components/menu";
 import ThemeController from "@/app/components/theme_controller";
 
@@ -55,7 +55,7 @@ export default function DesktopComponent() {
                 <p>
                   <span className="font-bold text-ctp-mauve-600">
                     Analytics:
-                  </span>{" "}
+                  </span>
                   pandas, NumPy, Polars, scikit-learn, XGBoost, TensorFlow,
                   PyTorch, dplyr, Pdyr, Pdymodels, NLTK, spaCy, OpenCV,
                   GeoPandas, PyMC3, Jupyter, Kedro, PySpark, NetworkX, PuLP
@@ -71,19 +71,19 @@ export default function DesktopComponent() {
                 <p>
                   <span className="font-bold text-ctp-mauve-600">
                     Languages:
-                  </span>{" "}
+                  </span>
                   Python, R, SQL, Go, JavaScript
                 </p>
                 <p>
                   <span className="font-bold text-ctp-mauve-600">
                     Web Development:
-                  </span>{" "}
+                  </span>
                   Flask, FastAPI, HTMX, Node.js, Jinja, Templ, Tailwind CSS
                 </p>
                 <p>
                   <span className="font-bold text-ctp-mauve-600">
                     Developer Tools:
-                  </span>{" "}
+                  </span>
                   Git, Linux, Docker, CI/CD, Automated TesPng, Makefiles,
                   Selenium
                 </p>
@@ -94,20 +94,20 @@ export default function DesktopComponent() {
         <div className="col-span-3 block h-full w-full">
           <div className="col-span-1 grid h-full w-full grid-cols-3">
             <div className="col-span-1 grid h-full grid-rows-3 place-items-center p-10">
-              {make_modal("machine_learning")}
-              {make_modal("data_viz")}
-              {make_modal("translator")}
+              <Modal modal_id="machine_learning" />
+              <Modal modal_id="data_viz" />
+              <Modal modal_id="translator" />
             </div>
             <div className="col-span-1 grid grid-rows-4 place-items-center p-10">
-              {make_modal("specialized")}
-              {make_modal("data_pipes")}
-              {make_modal("causal")}
-              {make_modal("teaching")}
+              <Modal modal_id="specialized" />
+              <Modal modal_id="data_pipes" />
+              <Modal modal_id="causal" />
+              <Modal modal_id="teaching" />
             </div>
             <div className="col-span-1 grid grid-rows-3 place-items-center p-10">
-              {make_modal("engineering")}
-              {make_modal("custom_tools")}
-              {make_modal("web_dev")}
+              <Modal modal_id="engineering" />
+              <Modal modal_id="custom_tools" />
+              <Modal modal_id="web_dev" />
             </div>
           </div>
         </div>
