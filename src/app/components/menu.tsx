@@ -8,7 +8,7 @@ export default function Menu() {
           href="/rabeez_riaz_cv.pdf"
           target="_blank"
           download="rabeez_riaz_cv"
-          className="btn text-ctp-mauve-600 btn-ghost"
+          className="btn text-custom-accent btn-ghost"
         >
           <FileUser />
         </a>
@@ -17,7 +17,7 @@ export default function Menu() {
         <a
           href="https://rabeez.substack.com/"
           target="_blank"
-          className="btn text-ctp-mauve-600 btn-ghost"
+          className="btn text-custom-accent btn-ghost"
         >
           <NotebookPen />
         </a>
@@ -26,7 +26,7 @@ export default function Menu() {
         <a
           href="https://github.com/Rabeez/"
           target="_blank"
-          className="btn text-ctp-mauve-600 btn-ghost"
+          className="btn text-custom-accent btn-ghost"
         >
           <Github />
         </a>
@@ -35,7 +35,7 @@ export default function Menu() {
         <a
           href="https://www.linkedin.com/in/rabeez/"
           target="_blank"
-          className="btn text-ctp-mauve-600 btn-ghost"
+          className="btn text-custom-accent btn-ghost"
         >
           <Linkedin />
         </a>

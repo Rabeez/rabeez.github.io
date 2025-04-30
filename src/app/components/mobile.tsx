@@ -12,14 +12,14 @@ export default function MobileComponent() {
       </div>
       <div className="absolute top-40">
         <article className="prose prose-sm lg:prose-lg">
-          <h4 className="text-ctp-mauve-600 italic">
+          <h4 className="text-custom-accent italic">
             Professionally stirring a pile of Linear Algebra and Statistics.
           </h4>
           <h6 className="italic">
             <a
               href="https://xkcd.com/1838"
               target="_blank"
-              className="text-ctp-mauve-600 no-underline"
+              className="text-custom-accent no-underline"
             >
               -- Obligatory XKCD
             </a>
@@ -43,18 +43,18 @@ export default function MobileComponent() {
             analytical dashboards using open-source tools.
           </p>
           <div tabIndex={0} className="collapse">
-            <div className="collapse-title font-semibold text-ctp-mauve-600">
+            <div className="collapse-title font-semibold text-custom-accent">
               Tools
             </div>
             <div className="collapse-content text-sm">
               <p>
-                <span className="font-bold text-ctp-mauve-600">Analytics:</span>{" "}
+                <span className="font-bold text-custom-accent">Analytics:</span>{" "}
                 pandas, NumPy, Polars, scikit-learn, XGBoost, TensorFlow,
                 PyTorch, dplyr, Pdyr, Pdymodels, NLTK, spaCy, OpenCV, GeoPandas,
                 PyMC3, Jupyter, Kedro, PySpark, NetworkX, PuLP
               </p>
               <p>
-                <span className="font-bold text-ctp-mauve-600">
+                <span className="font-bold text-custom-accent">
                   Visualization:
                 </span>
                 Matplotlib, Seaborn, Plotly, Dash, Altair, Streamlit, ggplot2,
@@ -62,17 +62,17 @@ export default function MobileComponent() {
               </p>
 
               <p>
-                <span className="font-bold text-ctp-mauve-600">Languages:</span>{" "}
+                <span className="font-bold text-custom-accent">Languages:</span>{" "}
                 Python, R, SQL, Go, JavaScript
               </p>
               <p>
-                <span className="font-bold text-ctp-mauve-600">
+                <span className="font-bold text-custom-accent">
                   Web Development:
                 </span>{" "}
                 Flask, FastAPI, HTMX, Node.js, Jinja, Templ, Tailwind CSS
               </p>
               <p>
-                <span className="font-bold text-ctp-mauve-600">
+                <span className="font-bold text-custom-accent">
                   Developer Tools:
                 </span>{" "}
                 Git, Linux, Docker, CI/CD, Automated TesPng, Makefiles, Selenium

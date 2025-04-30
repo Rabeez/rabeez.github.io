@@ -66,3 +66,17 @@ body {
     }
   }
 }
+
+@layer base {
+  [data-theme="mocha"] {
+    --custom-accent: 267 84% 81%;
+  }
+
+  [data-theme="latte"] {
+    --custom-accent: 266 85% 58%;
+  }
+}
+
+@theme inline {
+  --color-custom-accent: hsl(var(--custom-accent));
+}

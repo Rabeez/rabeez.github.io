@@ -9,7 +9,7 @@ export default function MenuMobile() {
         href="/rabeez_riaz_cv.pdf"
         target="_blank"
         download="rabeez_riaz_cv"
-        className="btn shrink basis-xs p-0 text-ctp-mauve-600 btn-ghost"
+        className="btn shrink basis-xs p-0 text-custom-accent btn-ghost"
       >
         <FileUser />
         Resume
@@ -17,7 +17,7 @@ export default function MenuMobile() {
       <a
         href="https://rabeez.substack.com/"
         target="_blank"
-        className="btn shrink basis-xs p-0 text-ctp-mauve-600 btn-ghost"
+        className="btn shrink basis-xs p-0 text-custom-accent btn-ghost"
       >
         <NotebookPen />
         Blog
@@ -25,7 +25,7 @@ export default function MenuMobile() {
       <a
         href="https://github.com/Rabeez/"
         target="_blank"
-        className="btn shrink basis-xs p-0 text-ctp-mauve-600 btn-ghost"
+        className="btn shrink basis-xs p-0 text-custom-accent btn-ghost"
       >
         <Github />
         GitHub
@@ -33,7 +33,7 @@ export default function MenuMobile() {
       <a
         href="https://www.linkedin.com/in/rabeez/"
         target="_blank"
-        className="btn shrink basis-xs p-0 text-ctp-mauve-600 btn-ghost"
+        className="btn shrink basis-xs p-0 text-custom-accent btn-ghost"
       >
         <Linkedin />
         LinkedIn

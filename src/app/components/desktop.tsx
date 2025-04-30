@@ -14,16 +14,16 @@ export default function DesktopComponent() {
       >
         <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-10 motion-duration-1000">
           <article className="prose prose-sm lg:prose-lg">
-            <h1 className="text-ctp-mauve-600">Rabeez Riaz</h1>
+            <h1 className="text-custom-accent">Rabeez Riaz</h1>
             <Menu />
-            <h4 className="text-ctp-mauve-600 italic">
+            <h4 className="text-custom-accent italic">
               Professionally stirring a pile of Linear Algebra and Statistics.
             </h4>
             <h6 className="italic">
               <a
                 href="https://xkcd.com/1838"
                 target="_blank"
-                className="text-ctp-mauve-600 no-underline"
+                className="text-custom-accent no-underline"
               >
                 -- Obligatory XKCD
               </a>
@@ -48,12 +48,12 @@ export default function DesktopComponent() {
               standalone analytical dashboards using open-source tools.
             </p>
             <div tabIndex={0} className="collapse">
-              <div className="collapse-title font-semibold text-ctp-mauve-600">
+              <div className="collapse-title font-semibold text-custom-accent">
                 Tools
               </div>
               <div className="collapse-content text-sm">
                 <p>
-                  <span className="font-bold text-ctp-mauve-600">
+                  <span className="font-bold text-custom-accent">
                     Analytics:
                   </span>
                   pandas, NumPy, Polars, scikit-learn, XGBoost, TensorFlow,
@@ -61,7 +61,7 @@ export default function DesktopComponent() {
                   GeoPandas, PyMC3, Jupyter, Kedro, PySpark, NetworkX, PuLP
                 </p>
                 <p>
-                  <span className="font-bold text-ctp-mauve-600">
+                  <span className="font-bold text-custom-accent">
                     Visualization:
                   </span>
                   Matplotlib, Seaborn, Plotly, Dash, Altair, Streamlit, ggplot2,
@@ -69,19 +69,19 @@ export default function DesktopComponent() {
                 </p>
 
                 <p>
-                  <span className="font-bold text-ctp-mauve-600">
+                  <span className="font-bold text-custom-accent">
                     Languages:
                   </span>
                   Python, R, SQL, Go, JavaScript
                 </p>
                 <p>
-                  <span className="font-bold text-ctp-mauve-600">
+                  <span className="font-bold text-custom-accent">
                     Web Development:
                   </span>
                   Flask, FastAPI, HTMX, Node.js, Jinja, Templ, Tailwind CSS
                 </p>
                 <p>
-                  <span className="font-bold text-ctp-mauve-600">
+                  <span className="font-bold text-custom-accent">
                     Developer Tools:
                   </span>
                   Git, Linux, Docker, CI/CD, Automated TesPng, Makefiles,
