@@ -28,6 +28,7 @@
     "daisyui": "^5.0.28",
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4",
+    "tailwindcss-intersect": "^2.2.0",
     "tailwindcss-motion": "^1.1.0",
     "typescript": "^5"
   }
