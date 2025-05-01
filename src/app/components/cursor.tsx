@@ -39,15 +39,15 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[9999]"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-70"
       animate={{
         x: mousePosition.x - 12,
         y: mousePosition.y - 12,
         width: isHovering ? 24 : 16,
         height: isHovering ? 24 : 16,
         backgroundColor: isHovering
-          ? "var(--color-accent)"
-          : "var(--color-primary)",
+          ? "var(--color-primary)"
+          : "var(--color-neutral)",
       }}
       style={{
         borderRadius: "9999px",
