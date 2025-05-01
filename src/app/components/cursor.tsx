@@ -46,8 +46,8 @@ export default function CustomCursor() {
         width: isHovering ? 24 : 16,
         height: isHovering ? 24 : 16,
         backgroundColor: isHovering
-          ? "var(--color-primary)"
-          : "var(--color-white)",
+          ? "var(--color-accent)"
+          : "var(--color-primary)",
       }}
       style={{
         borderRadius: "9999px",
