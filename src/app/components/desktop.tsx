@@ -3,7 +3,7 @@
 import Modal from "@/app/registry";
 import Menu from "@/app/components/menu";
 import ThemeController from "@/app/components/theme_controller";
-import SmoothTabs from "./tabgroup";
+import SmoothTabs from "@/app/components/tabgroup";
 
 export default function DesktopComponent() {
   return (
