@@ -80,3 +80,7 @@ body {
 @theme inline {
   --color-custom-accent: hsl(var(--custom-accent));
 }
+
+* {
+  cursor: none !important;
+}
