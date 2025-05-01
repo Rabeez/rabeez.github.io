@@ -63,9 +63,9 @@ export default function SmoothTabs() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: activeTab === "Bio" ? -20 : 20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: activeTab === "Bio" ? -20 : 20 }}
             transition={{ duration: 0.1 }}
             className="absolute h-fit min-h-fit w-full p-2"
           >
