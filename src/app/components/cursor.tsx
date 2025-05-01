@@ -45,7 +45,9 @@ export default function CustomCursor() {
         y: mousePosition.y - 12,
         width: isHovering ? 24 : 16,
         height: isHovering ? 24 : 16,
-        backgroundColor: isHovering ? "#facc15" : "#ffffff",
+        backgroundColor: isHovering
+          ? "var(--color-primary)"
+          : "var(--color-white)",
       }}
       style={{
         borderRadius: "9999px",
