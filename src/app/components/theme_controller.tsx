@@ -21,7 +21,7 @@ export default function ThemeController() {
         className="tooltip tooltip-left tooltip-primary"
         data-tip={"Set " + (theme == "mocha" ? "light" : "dark") + " mode"}
       >
-        <label className="swap swap-rotate">
+        <label id="theme-switcher" className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
           <input
             id="theme-toggle"
