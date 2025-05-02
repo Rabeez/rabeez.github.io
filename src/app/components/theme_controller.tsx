@@ -2,19 +2,12 @@
 
 import { useEffect, useState } from "react";
 
-export default function ThemeController() {
-  const [theme, setTheme] = useState("mocha");
-  useEffect(() => {
-    document.querySelector("body")?.setAttribute("data-theme", theme!);
-  }, [theme]);
-  const handleToggle = (e: any) => {
-    if (e.target.checked) {
-      setTheme("latte");
-    } else {
-      setTheme("mocha");
-    }
-  };
+interface ThemeProps {
+  theme: "latte" | "mocha";
+  handleToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+export default function ThemeController({ theme, handleToggle }: ThemeProps) {
   return (
     <div className="fixed top-0 right-0 z-40 motion-preset-focus p-4 motion-duration-1000">
       <div

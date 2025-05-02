@@ -1,21 +1,13 @@
 "use client";
 
 import type React from "react";
+
 import { useRef, useEffect, useState } from "react";
 import { useTime, animate } from "motion/react";
 import * as THREE from "three";
 
 interface ShaderBackgroundProps {
-  // Light theme colors
-  lightThemeColors?: {
-    lightBlue: string;
-    darkBlue: string;
-  };
-  // Dark theme colors
-  darkThemeColors?: {
-    lightBlue: string;
-    darkBlue: string;
-  };
+  theme?: "latte" | "mocha"; // Make theme optional with a default
   // Z-index for the shader container
   zIndex?: number;
   // Debug mode to show current theme
@@ -26,89 +18,65 @@ interface ShaderBackgroundProps {
 }
 
 export default function ShaderBackground({
-  // Default light theme colors (softer blues)
-  lightThemeColors = {
-    lightBlue: "#93c5fd", // blue-300
-    darkBlue: "#3b82f6", // blue-500
-  },
-  // Default dark theme colors (deeper blues)
-  darkThemeColors = {
-    lightBlue: "#60a5fa", // blue-400
-    darkBlue: "#1e40af", // blue-800
-  },
-  // Allow custom z-index (default -10)
+  theme = "mocha", // Default to latte if not provided
   zIndex = -10,
-  // Debug mode
   debug = false,
-  // Force visibility for debugging
   forceVisible = false,
   children,
 }: ShaderBackgroundProps) {
+  const my_theme_colors = {
+    latte: {
+      lightBlue: "#93c5ad",
+      darkBlue: "#ff82a6",
+    },
+    mocha: {
+      lightBlue: "#60a5fa",
+      darkBlue: "#1e40af",
+    },
+  };
+
+  // Ensure we have a valid theme
+  const safeTheme =
+    theme && (theme === "latte" || theme === "mocha") ? theme : "mocha";
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const timeRef = useRef<number>(0);
   const materialRef = useRef<THREE.ShaderMaterial | null>(null);
   const time = useTime();
 
-  // Use refs instead of state for the current colors to avoid re-renders
+  // Use refs for the current colors to avoid re-renders
   const currentLightBlueRef = useRef<THREE.Vector3>(new THREE.Vector3());
   const currentDarkBlueRef = useRef<THREE.Vector3>(new THREE.Vector3());
 
-  // For debugging - we'll use state for this since we want to show it in the UI
-  const [currentTheme, setCurrentTheme] = useState<"latte" | "mocha">("mocha");
-
-  // Track the current theme with a ref to avoid re-renders
-  const themeRef = useRef<"latte" | "mocha">("mocha");
-
-  // We'll still need one state to trigger initial setup
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  // Function to get the current theme from data-theme attribute
-  const getCurrentTheme = (): "latte" | "mocha" => {
-    if (typeof document !== "undefined") {
-      const dataTheme = document.documentElement.getAttribute("data-theme");
-      return dataTheme === "mocha" ? "mocha" : "latte";
-    }
-    return "mocha"; // Default to light if not in browser
-  };
+  // For debugging
+  const [debugInfo, setDebugInfo] = useState<string>("");
 
   // Add debug info
+  const addDebugInfo = (info: string) => {
+    if (debug) {
+      console.log(`[ShaderBackground] ${info}`);
+      setDebugInfo(
+        (prev) => `${prev}\n${new Date().toLocaleTimeString()}: ${info}`,
+      );
+    }
+  };
 
-  // Initialize theme observer
+  // Update colors when theme changes
   useEffect(() => {
-    // Set initial theme
-    const initialTheme = getCurrentTheme();
-    themeRef.current = initialTheme;
-    setCurrentTheme(initialTheme); // For debugging
-
-    // Initialize the component
-    setIsInitialized(true);
-
-    // Create a mutation observer to watch for theme changes
-    const observer = new MutationObserver(() => {
-      const newTheme = getCurrentTheme();
-
-      // Only update if the theme actually changed
-      if (themeRef.current !== newTheme) {
-        themeRef.current = newTheme;
-        setCurrentTheme(newTheme); // For debugging
-        updateColorsForTheme(newTheme);
-      }
-    });
-
-    // Start observing the document element for data-theme changes
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme"],
-    });
-
-    // Cleanup observer on unmount
-    return () => observer.disconnect();
-  }, []); // Empty dependency array - run once on mount
+    if (materialRef.current) {
+      updateColorsForTheme(safeTheme);
+    }
+  }, [safeTheme]);
 
   // Function to update colors based on theme
-  const updateColorsForTheme = (theme: "latte" | "mocha") => {
-    const colors = theme === "mocha" ? darkThemeColors : lightThemeColors;
+  const updateColorsForTheme = (currentTheme: "latte" | "mocha") => {
+    // Safely get colors, defaulting to latte if there's an issue
+    const colors = my_theme_colors[currentTheme] || my_theme_colors.latte;
+
+    addDebugInfo(
+      `Updating colors for ${currentTheme} theme: ${colors.lightBlue}, ${colors.darkBlue}`,
+    );
 
     // Parse the hex colors to RGB values
     const lightBlueRGB = hexToRgb(colors.lightBlue);
@@ -129,6 +97,7 @@ export default function ShaderBackground({
 
     // Animate color transitions
     if (materialRef.current) {
+      addDebugInfo("Material found, updating colors");
       // Start with current values if they exist, otherwise use targets
       const startLightBlue =
         currentLightBlueRef.current.length() > 0
@@ -195,16 +164,19 @@ export default function ShaderBackground({
           },
         },
       );
+    } else {
+      addDebugInfo("Material not found, cannot update colors");
     }
   };
 
   // Initialize WebGL and shader
   useEffect(() => {
-    if (!isInitialized || !canvasRef.current) return;
+    if (!canvasRef.current) {
+      addDebugInfo("Canvas not found");
+      return;
+    }
 
-    // Get initial theme
-    const initialTheme = getCurrentTheme();
-    themeRef.current = initialTheme;
+    addDebugInfo("Initializing WebGL and shader");
 
     // Setup renderer
     const renderer = new THREE.WebGLRenderer({
@@ -218,9 +190,12 @@ export default function ShaderBackground({
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-    // Get initial colors based on theme
-    const colors =
-      initialTheme === "mocha" ? darkThemeColors : lightThemeColors;
+    // Get initial colors based on theme - safely
+    const colors = my_theme_colors[safeTheme] || my_theme_colors.latte;
+
+    addDebugInfo(
+      `Using ${safeTheme} theme colors: ${colors.lightBlue}, ${colors.darkBlue}`,
+    );
 
     // Parse the hex colors to RGB values
     const lightBlueRGB = hexToRgb(colors.lightBlue);
@@ -244,6 +219,7 @@ export default function ShaderBackground({
     currentDarkBlueRef.current = initialDarkBlue.clone();
 
     // Create shader material
+    // Source: https://www.shadertoy.com/view/4tdBRs
     const shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
         iTime: { value: 0 },
@@ -275,7 +251,7 @@ export default function ShaderBackground({
           // Combine layers for more interesting effect
           vec3 col = fogEffect * depth.g + depth.b * lightBlue * 0.3;
           
-          // Output to screen
+          // Output to screen with full opacity
           gl_FragColor = vec4(col, 1.0);
         }
       `,
@@ -283,6 +259,7 @@ export default function ShaderBackground({
 
     // Store material reference for later updates
     materialRef.current = shaderMaterial;
+    addDebugInfo("Shader material created");
 
     // Create a plane that fills the screen
     const plane = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMaterial);
@@ -318,9 +295,11 @@ export default function ShaderBackground({
 
     handleResize();
     animate();
+    addDebugInfo("Animation loop started");
 
     // Cleanup
     return () => {
+      addDebugInfo("Cleaning up WebGL resources");
       scene.remove(plane);
       plane.geometry.dispose();
       shaderMaterial.dispose();
@@ -328,7 +307,7 @@ export default function ShaderBackground({
       rendererRef.current = null;
       materialRef.current = null;
     };
-  }, [isInitialized, darkThemeColors, lightThemeColors]); // Only run when initialized or theme colors change
+  }, [safeTheme, debug]); // Use safeTheme instead of theme
 
   // Update time from Framer Motion's useTime hook
   useEffect(() => {
@@ -346,19 +325,25 @@ export default function ShaderBackground({
 
   return (
     <div
-      className={`-z-${zIndex * -1} fixed inset-0 overflow-hidden`}
+      className={`${debug ? "pointer-events-auto" : "pointer-events-none"} fixed inset-0 overflow-hidden`}
       style={{
         zIndex: effectiveZIndex,
-        // Add a background color in debug mode to help identify if the component is rendering
         backgroundColor:
           debug && forceVisible ? "rgba(0,0,0,0.1)" : "transparent",
+        opacity: 1,
+        visibility: "visible",
       }}
     >
       <canvas
         ref={canvasRef}
         className="h-full w-full"
-        style={{ display: "block" }}
+        style={{
+          display: "block",
+          opacity: 1,
+          visibility: "visible",
+        }}
       />
+
       {debug && (
         <div
           className="absolute top-4 left-4 rounded bg-black p-4 text-white shadow-lg"
@@ -371,24 +356,27 @@ export default function ShaderBackground({
             opacity: 0.9,
           }}
         >
-          <p className="mb-2">Current Theme: {currentTheme}</p>
+          <h3 className="mb-2 text-xl font-bold">ShaderBackground Debug</h3>
+          <p className="mb-2">
+            Current Theme: <strong>{safeTheme}</strong>{" "}
+            {safeTheme !== theme && `(defaulted from ${theme || "undefined"})`}
+          </p>
           <p className="mb-2">
             Z-Index: <strong>{effectiveZIndex}</strong>
           </p>
           <p className="mb-2">
-            Light Blue:
-            {currentTheme === "latte"
-              ? lightThemeColors.lightBlue
-              : darkThemeColors.lightBlue}
+            Colors: {JSON.stringify(my_theme_colors[safeTheme])}
           </p>
-          <p>
-            Dark Blue:
-            {currentTheme === "latte"
-              ? lightThemeColors.darkBlue
-              : darkThemeColors.darkBlue}
-          </p>
+
+          <div className="mt-4">
+            <p className="font-bold">Debug Log:</p>
+            <pre className="mt-2 rounded bg-gray-800 p-2 text-xs whitespace-pre-wrap">
+              {debugInfo || "No debug info yet"}
+            </pre>
+          </div>
         </div>
       )}
+
       {children}
     </div>
   );

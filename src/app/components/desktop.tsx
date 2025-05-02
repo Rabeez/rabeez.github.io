@@ -6,12 +6,20 @@ import ThemeController from "@/app/components/theme_controller";
 import SmoothTabs from "@/app/components/tabgroup";
 import CustomCursor from "@/app/components/cursor";
 
-export default function DesktopComponent() {
+interface DesktopProps {
+  theme: "latte" | "mocha";
+  handleThemeToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function DesktopComponent({
+  theme,
+  handleThemeToggle,
+}: DesktopProps) {
   return (
     <div className="z-0 cursor-none">
       <CustomCursor />
       <div className="h-full w-full overflow-hidden">
-        <ThemeController />
+        <ThemeController theme={theme} handleToggle={handleThemeToggle} />
         <div
           id="content"
           className="grid h-full min-h-full w-full min-w-full grid-cols-5 gap-0 pt-30 font-medium"

@@ -3,11 +3,19 @@
 import MobileHeader from "@/app/components/mobile_header";
 import ThemeController from "@/app/components/theme_controller";
 
-export default function MobileComponent() {
+interface MobileProps {
+  theme: "latte" | "mocha";
+  handleThemeToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function MobileComponent({
+  theme,
+  handleThemeToggle,
+}: MobileProps) {
   return (
     <div className="p-6">
       <div>
-        <ThemeController />
+        <ThemeController theme={theme} handleToggle={handleThemeToggle} />
         <MobileHeader />
       </div>
       <div className="absolute top-40">
