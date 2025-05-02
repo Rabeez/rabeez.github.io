@@ -18,7 +18,12 @@ export default function DesktopComponent() {
         >
           <div className="col-span-2 block h-full w-full motion-preset-focus place-content-center pl-10 motion-duration-1000">
             <article className="prose prose-sm h-full min-h-full place-items-start lg:prose-lg">
-              <h1 className="text-custom-accent">Rabeez Riaz</h1>
+              <h1 className="text-custom-accent">
+                Rabeez Riaz
+                {/* <div className="inline motion-preset-blink bg-custom-accent"> */}
+                {/*   x */}
+                {/* </div> */}
+              </h1>
               <Menu />
               <h4 className="text-custom-accent italic">
                 Professionally stirring a pile of Linear Algebra and Statistics.
