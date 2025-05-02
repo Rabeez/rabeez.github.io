@@ -8,7 +8,7 @@ import CustomCursor from "@/app/components/cursor";
 
 export default function DesktopComponent() {
   return (
-    <div className="cursor-none">
+    <div className="z-0 cursor-none">
       <CustomCursor />
       <div className="h-full w-full overflow-hidden">
         <ThemeController />

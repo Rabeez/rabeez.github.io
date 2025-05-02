@@ -3,6 +3,7 @@
 import { useState } from "react";
 import MobileComponent from "@/app/components/mobile";
 import DesktopComponent from "@/app/components/desktop";
+import ShaderBackground from "@/app/components/shader_bg";
 
 export default function Home() {
   const [isMobile, _] = useState(() => {
@@ -12,5 +13,10 @@ export default function Home() {
     return false;
   });
 
-  return isMobile ? <MobileComponent /> : <DesktopComponent />;
+  return (
+    <>
+      <ShaderBackground debug={false} forceVisible={false} zIndex={0} />
+      {isMobile ? <MobileComponent /> : <DesktopComponent />}
+    </>
+  );
 }
