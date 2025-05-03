@@ -26,8 +26,8 @@ export default function ShaderBackground({
       darkBlue: "#ff82a6",
     },
     mocha: {
-      lightBlue: "#60a5fa",
-      darkBlue: "#1e40af",
+      lightBlue: "#a0a5fa",
+      darkBlue: "#fe40af",
     },
   };
 
@@ -77,8 +77,9 @@ export default function ShaderBackground({
       onUpdate: (latest) => {
         currentLightBlueRef.current.set(latest.x, latest.y, latest.z);
         if (materialRef.current)
-          materialRef.current.uniforms.lightBlue.value =
-            currentLightBlueRef.current;
+          materialRef.current?.uniforms.lightBlue.value.copy(
+            currentLightBlueRef.current,
+          );
       },
     });
 
@@ -87,15 +88,12 @@ export default function ShaderBackground({
       onUpdate: (latest) => {
         currentDarkBlueRef.current.set(latest.x, latest.y, latest.z);
         if (materialRef.current)
-          materialRef.current.uniforms.darkBlue.value =
-            currentDarkBlueRef.current;
+          materialRef.current?.uniforms.darkBlue.value.copy(
+            currentDarkBlueRef.current,
+          );
       },
     });
   };
-
-  useEffect(() => {
-    updateColorsForTheme(safeTheme);
-  }, [safeTheme]);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -111,29 +109,27 @@ export default function ShaderBackground({
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
     const colors = my_theme_colors[safeTheme];
+    // console.log("init colors", colors);
     const lightBlueRGB = hexToRgb(colors.lightBlue);
     const darkBlueRGB = hexToRgb(colors.darkBlue);
 
-    const initialLightBlue = new THREE.Vector3(
+    currentLightBlueRef.current.set(
       lightBlueRGB.r / 255,
       lightBlueRGB.g / 255,
       lightBlueRGB.b / 255,
     );
-    const initialDarkBlue = new THREE.Vector3(
+    currentDarkBlueRef.current.set(
       darkBlueRGB.r / 255,
       darkBlueRGB.g / 255,
       darkBlueRGB.b / 255,
     );
 
-    currentLightBlueRef.current.copy(initialLightBlue);
-    currentDarkBlueRef.current.copy(initialDarkBlue);
-
     const shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
         iTime: { value: 0 },
         iResolution: { value: new THREE.Vector3() },
-        lightBlue: { value: initialLightBlue.clone() },
-        darkBlue: { value: initialDarkBlue.clone() },
+        lightBlue: { value: currentLightBlueRef.current },
+        darkBlue: { value: currentDarkBlueRef.current },
       },
       vertexShader: `
         void main() {
@@ -148,10 +144,15 @@ export default function ShaderBackground({
 
         void main() {
           vec2 uv = gl_FragCoord.xy / iResolution.xy;
+          uv.x *= iResolution.x / iResolution.y;
+
           vec3 depth = 0.5 + 0.2 * cos(iTime + uv.xyx * 5.0 + vec3(0, 2, 4));
           vec3 fogEffect = mix(darkBlue, lightBlue, depth);
           vec3 col = fogEffect * depth.g + depth.b * lightBlue * 0.3;
           gl_FragColor = vec4(col, 1.0);
+
+          // vec3 color = uv.x < 0.5 ? lightBlue : darkBlue;
+          // gl_FragColor = vec4(color, 1.0);
         }
       `,
     });
@@ -194,26 +195,25 @@ export default function ShaderBackground({
 
   // Theme update only updates uniform values
   useEffect(() => {
-    console.log("updateing colors", safeTheme);
+    // console.log("updating colors", safeTheme);
+
     const colors = my_theme_colors[safeTheme];
 
     const lightRGB = hexToRgb(colors.lightBlue);
     const darkRGB = hexToRgb(colors.darkBlue);
 
-    materialRef.current?.uniforms.lightBlue.value.set(
-      lightRGB.r / 255,
-      lightRGB.g / 255,
-      lightRGB.b / 255,
+    materialRef.current?.uniforms.lightBlue.value.copy(
+      new THREE.Vector3(lightRGB.r / 255, lightRGB.g / 255, lightRGB.b / 255),
+    );
+    materialRef.current?.uniforms.darkBlue.value.copy(
+      new THREE.Vector3(darkRGB.r / 255, darkRGB.g / 255, darkRGB.b / 255),
     );
 
-    materialRef.current?.uniforms.darkBlue.value.set(
-      darkRGB.r / 255,
-      darkRGB.g / 255,
-      darkRGB.b / 255,
-    );
-    console.log(materialRef.current?.uniforms);
+    // console.log(materialRef.current?.uniforms);
+    // console.log(materialRef.current?.uniforms.darkBlue.value);
   }, [safeTheme]);
 
+  // Move the animation forward
   useEffect(() => {
     const unsub = time.on("change", (val) => {
       timeRef.current = val / 1000;
