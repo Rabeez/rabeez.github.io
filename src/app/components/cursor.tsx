@@ -14,14 +14,22 @@ export default function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest('a, button, [role="button"], #theme-switcher')) {
+      if (
+        target.closest(
+          'a, button, [role="button"], #theme-switcher, .grid_btn_custom',
+        )
+      ) {
         setIsHovering(true);
       }
     };
 
     const handleMouseOut = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest('a, button, [role="button"], #theme-switcher')) {
+      if (
+        target.closest(
+          'a, button, [role="button"], #theme-switcher, .grid_btn_custom',
+        )
+      ) {
         setIsHovering(false);
       }
     };

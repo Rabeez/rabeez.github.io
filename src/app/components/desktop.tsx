@@ -1,10 +1,10 @@
 "use client";
 
-import Modal from "@/app/registry";
 import Menu from "@/app/components/menu";
 import ThemeController from "@/app/components/theme_controller";
 import SmoothTabs from "@/app/components/tabgroup";
 import CustomCursor from "@/app/components/cursor";
+import ExpandingGrid from "@/app/components/gridgroup";
 
 interface DesktopProps {
   theme: "latte" | "mocha";
@@ -16,7 +16,7 @@ export default function DesktopComponent({
   handleThemeToggle,
 }: DesktopProps) {
   return (
-    <div className="z-0 cursor-none">
+    <div className="z-0 h-full w-full">
       <CustomCursor />
       <div className="h-full w-full overflow-hidden">
         <ThemeController theme={theme} handleToggle={handleThemeToggle} />
@@ -48,25 +48,26 @@ export default function DesktopComponent({
               <SmoothTabs />
             </article>
           </div>
-          <div className="col-span-3 block h-full w-full">
-            <div className="col-span-1 grid h-full w-full grid-cols-3">
-              <div className="col-span-1 grid h-full grid-rows-3 place-items-center p-10">
-                <Modal modal_id="machine_learning" />
-                <Modal modal_id="data_viz" />
-                <Modal modal_id="translator" />
-              </div>
-              <div className="col-span-1 grid grid-rows-4 place-items-center p-10">
-                <Modal modal_id="specialized" />
-                <Modal modal_id="data_pipes" />
-                <Modal modal_id="causal" />
-                <Modal modal_id="teaching" />
-              </div>
-              <div className="col-span-1 grid grid-rows-3 place-items-center p-10">
-                <Modal modal_id="engineering" />
-                <Modal modal_id="custom_tools" />
-                <Modal modal_id="web_dev" />
-              </div>
-            </div>
+          <div className="col-span-3 flex h-full w-full flex-col items-center justify-center p-20">
+            <ExpandingGrid />
+            {/* <div className="h-full w-full"> */}
+            {/* <div className="col-span-1 grid h-full grid-rows-3 place-items-center p-10"> */}
+            {/*   <Modal modal_id="machine_learning" /> */}
+            {/*   <Modal modal_id="data_viz" /> */}
+            {/*   <Modal modal_id="translator" /> */}
+            {/* </div> */}
+            {/* <div className="col-span-1 grid grid-rows-4 place-items-center p-10"> */}
+            {/*   <Modal modal_id="specialized" /> */}
+            {/*   <Modal modal_id="data_pipes" /> */}
+            {/*   <Modal modal_id="causal" /> */}
+            {/*   <Modal modal_id="teaching" /> */}
+            {/* </div> */}
+            {/* <div className="col-span-1 grid grid-rows-3 place-items-center p-10"> */}
+            {/*   <Modal modal_id="engineering" /> */}
+            {/*   <Modal modal_id="custom_tools" /> */}
+            {/*   <Modal modal_id="web_dev" /> */}
+            {/* </div> */}
+            {/* </div> */}
           </div>
         </div>
       </div>
