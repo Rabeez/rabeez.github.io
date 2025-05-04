@@ -124,6 +124,7 @@ export default function ShaderBackground({
       darkBlueRGB.b / 255,
     );
 
+    // Source: https://www.shadertoy.com/view/4tdBRs/
     const shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
         iTime: { value: 0 },
