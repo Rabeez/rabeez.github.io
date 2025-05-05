@@ -22,12 +22,12 @@ export default function ShaderBackground({
 }: ShaderBackgroundProps) {
   const my_theme_colors = {
     latte: {
-      lightBlue: "#93c5ad",
-      darkBlue: "#ff82a6",
+      lightBlue: "#eff1f5",
+      darkBlue: "#acb0be",
     },
     mocha: {
-      lightBlue: "#a0a5fa",
-      darkBlue: "#fe40af",
+      lightBlue: "#1e1e2e",
+      darkBlue: "#585b70",
     },
   };
 
@@ -147,9 +147,9 @@ export default function ShaderBackground({
           vec2 uv = gl_FragCoord.xy / iResolution.xy;
           uv.x *= iResolution.x / iResolution.y;
 
-          vec3 depth = 0.5 + 0.2 * cos(iTime + uv.xyx * 5.0 + vec3(0, 2, 4));
+          vec3 depth = 0.5 + 0.2 * cos(iTime * 0.5 + uv.xyx * 5.0);
           vec3 fogEffect = mix(darkBlue, lightBlue, depth);
-          vec3 col = fogEffect * depth.g + depth.b * lightBlue * 0.3;
+          vec3 col = fogEffect * depth.g + depth.b * lightBlue;
           gl_FragColor = vec4(col, 1.0);
 
           // vec3 color = uv.x < 0.5 ? lightBlue : darkBlue;
