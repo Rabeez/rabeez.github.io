@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, useMotionValue } from "motion/react";
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      x.set(e.clientX - 12);
+      y.set(e.clientY - 12);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -43,27 +45,27 @@ export default function CustomCursor() {
       window.removeEventListener("mouseover", handleMouseOver);
       window.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []);
+  }, [x, y]);
 
   return (
     <motion.div
       className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-70"
+      style={{
+        x,
+        y,
+        borderRadius: "9999px",
+      }}
       animate={{
-        x: mousePosition.x - 12,
-        y: mousePosition.y - 12,
         width: isHovering ? 24 : 16,
         height: isHovering ? 24 : 16,
         backgroundColor: isHovering
           ? "var(--color-primary)"
           : "var(--color-neutral)",
       }}
-      style={{
-        borderRadius: "9999px",
-      }}
       transition={{
-        type: "spring",
-        stiffness: 500,
-        damping: 30,
+        width: { type: "spring", stiffness: 500, damping: 30 },
+        height: { type: "spring", stiffness: 500, damping: 30 },
+        backgroundColor: { duration: 0.3 },
       }}
     />
   );
