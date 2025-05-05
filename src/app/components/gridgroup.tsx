@@ -1,55 +1,86 @@
 "use client";
 
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function ExpandingGrid() {
   // Sample content for each grid item
-  const gridItems = [
+  type GridItemType = {
+    title: JSX.Element;
+    content: JSX.Element;
+  };
+  const gridItems: GridItemType[] = [
     {
-      title: "Item 1",
-      content:
-        "This is the expanded content for item 1. Click anywhere to collapse.",
+      title: <div>Item 1</div>,
+      content: (
+        <div>
+          This is the expanded content for item 1. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 2",
-      content:
-        "This is the expanded content for item 2. Click anywhere to collapse.",
+      title: <div>Item 2</div>,
+      content: (
+        <div>
+          This is the expanded content for item 2. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 3",
-      content:
-        "This is the expanded content for item 3. Click anywhere to collapse.",
+      title: <div>Item 3</div>,
+      content: (
+        <div>
+          This is the expanded content for item 3. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 4",
-      content:
-        "This is the expanded content for item 4. Click anywhere to collapse.",
+      title: <div>Item 4</div>,
+      content: (
+        <div>
+          This is the expanded content for item 4. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 5",
-      content:
-        "This is the expanded content for item 5. Click anywhere to collapse.",
+      title: <div>Item 5</div>,
+      content: (
+        <div>
+          This is the expanded content for item 5. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 6",
-      content:
-        "This is the expanded content for item 6. Click anywhere to collapse.",
+      title: <div>Item 6</div>,
+      content: (
+        <div>
+          This is the expanded content for item 6. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 7",
-      content:
-        "This is the expanded content for item 7. Click anywhere to collapse.",
+      title: <div>Item 7</div>,
+      content: (
+        <div>
+          This is the expanded content for item 7. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 8",
-      content:
-        "This is the expanded content for item 8. Click anywhere to collapse.",
+      title: <div>Item 8</div>,
+      content: (
+        <div>
+          This is the expanded content for item 8. Click anywhere to collapse.
+        </div>
+      ),
     },
     {
-      title: "Item 9",
-      content:
-        "This is the expanded content for item 9. Click anywhere to collapse.",
+      title: <div>Item 9</div>,
+      content: (
+        <div>
+          This is the expanded content for item 9. Click anywhere to collapse.
+        </div>
+      ),
     },
   ];
 
