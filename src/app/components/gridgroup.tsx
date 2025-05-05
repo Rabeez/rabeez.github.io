@@ -70,7 +70,7 @@ export default function ExpandingGrid() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed top-0 left-0 z-40 h-full w-full bg-black/80"
+            className="fixed top-0 left-0 z-40 h-full w-full bg-base-100/70"
             onClick={() => setExpandedIndex(null)}
           />
         )}
@@ -88,13 +88,10 @@ export default function ExpandingGrid() {
                 onClick={() => handleClick(index)}
                 className={
                   isExpanded
-                    ? `absolute bg-red-800 h-full w-full top-0 left-0 z-50 p-4`
-                    : ` hover:bg-neutral-700/20 text-center` +
-                      " grid_btn_custom h-full w-full place-content-center overflow-hidden rounded-lg border-2 border-neutral-500/10 bg-neutral-700/10 p-6 transition-colors "
+                    ? `absolute bg-base-200 h-full w-full top-0 left-0 z-50 p-4 text-base-content`
+                    : ` hover:bg-neutral-700/20 text-center grid_btn_custom` +
+                      " h-full w-full place-content-center overflow-hidden rounded-lg bg-neutral-700/10 p-6 transition-colors "
                 }
-                animate={{
-                  borderRadius: isExpanded ? 16 : 8,
-                }}
                 transition={{
                   layout: { type: "spring", bounce: 0.2, duration: 0.6 },
                 }}
@@ -112,7 +109,7 @@ export default function ExpandingGrid() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="mt-2 text-gray-700 dark:text-gray-300"
+                      className="mt-2"
                     >
                       {item.content}
                     </motion.div>
