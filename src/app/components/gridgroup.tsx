@@ -90,8 +90,11 @@ export default function ExpandingGrid() {
                   isExpanded
                     ? `absolute bg-base-200 h-full w-full top-0 left-0 z-50 p-4 text-base-content`
                     : ` hover:bg-neutral-700/20 text-center grid_btn_custom` +
-                      " h-full w-full place-content-center overflow-hidden rounded-lg bg-neutral-700/10 p-6 transition-colors "
+                      " h-full w-full place-content-center overflow-hidden bg-neutral-700/10 p-6 transition-colors rounded-4xl"
                 }
+                animate={{
+                  borderRadius: isExpanded ? 32 : 32,
+                }}
                 transition={{
                   layout: { type: "spring", bounce: 0.2, duration: 0.6 },
                 }}
