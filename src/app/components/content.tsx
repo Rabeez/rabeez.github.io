@@ -63,74 +63,102 @@ type GridItem = {
 };
 export const gridItems: GridItem[] = [
   {
-    title: <div>Item 1</div>,
+    title: <div>Machine Learning</div>,
     content: (
       <div>
-        This is the expanded content for item 1. Click anywhere to collapse.
+        <p>Propesity Modeling</p>
+        <p>Multi-label Classification</p>
+        <p>Structural time series</p>
+        <p>Automated rule extraction</p>
+        <p>Gradient Boosting</p>
+        <p>Feature importance - SHAP</p>
       </div>
     ),
   },
   {
-    title: <div>Item 2</div>,
+    title: <div>Data Pipelines</div>,
     content: (
       <div>
-        This is the expanded content for item 2. Click anywhere to collapse.
+        <p>Multi-modal input sources into single feature store</p>
+        <p>Clickstream data-mart</p>
+        <p>Domain-driven record linkage</p>
+        <p>'Plug-and-play' BI pipeline</p>
       </div>
     ),
   },
   {
-    title: <div>Item 3</div>,
+    title: <div>Engineering</div>,
     content: (
       <div>
-        This is the expanded content for item 3. Click anywhere to collapse.
+        <p>Version Control</p>
+        <p>System Architecture</p>
+        <p>Structured Logging</p>
+        <p>Package/library development</p>
+        <p>Containers</p>
       </div>
     ),
   },
   {
-    title: <div>Item 4</div>,
+    title: <div>Causal Inference</div>,
     content: (
       <div>
-        This is the expanded content for item 4. Click anywhere to collapse.
+        <p>A/B Tests</p>
+        <p>Monte-carlo simulations</p>
+        <p>Uplift Modeling</p>
+        <p>Impact quantification</p>
+        <p>Multiple interventions</p>
       </div>
     ),
   },
   {
-    title: <div>Item 5</div>,
+    title: <div>Data Visualization &amp; Reporting</div>,
     content: (
       <div>
-        This is the expanded content for item 5. Click anywhere to collapse.
+        <p>Custom plotly/dash dashboards</p>
+        <p>Custom python/javascript charts in PowerBI</p>
+        <p>Automated PDF report generation</p>
+        <p>Streamlit application for processing news sentiment</p>
+        <p>Interactive RShiny applications</p>
       </div>
     ),
   },
   {
-    title: <div>Item 6</div>,
+    title: <div>Custom Tooling</div>,
     content: (
       <div>
-        This is the expanded content for item 6. Click anywhere to collapse.
+        <p>Web scraper for tourism data</p>
+        <p>Powerpoint parser for data extraction</p>
+        <p>YAML-based feature engineering DSL</p>
+        <p>Custom, lightweight model orchestration</p>
       </div>
     ),
   },
   {
-    title: <div>Item 7</div>,
+    title: <div>Domain-specific Modeling</div>,
     content: (
       <div>
-        This is the expanded content for item 7. Click anywhere to collapse.
+        <p>Morphological image transformations to isolate features</p>
+        <p>Text embeddings and LLMs</p>
+        <p>Remote-sensing CNN model for land-use classification</p>
+        <p>White space analysis</p>
       </div>
     ),
   },
   {
-    title: <div>Item 8</div>,
+    title: <div>Communication &amp; Teaching</div>,
     content: (
       <div>
-        This is the expanded content for item 8. Click anywhere to collapse.
+        <p>Multi-label Classification</p>
+        <p>Multi-label Classification</p>
       </div>
     ),
   },
   {
-    title: <div>Item 9</div>,
+    title: <div>Web Development</div>,
     content: (
       <div>
-        This is the expanded content for item 9. Click anywhere to collapse.
+        <p>Flask/FastAPI analytical APIs</p>
+        <p>HTMX for simple standalone web application</p>
       </div>
     ),
   },
