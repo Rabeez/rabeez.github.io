@@ -18,10 +18,12 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
       if (
         target.closest(
-          'a, button, [role="button"], #theme-switcher, .grid_btn_custom',
+          'a, button, [role="button"], #theme-switcher, .grid_btn_custom, .grid_backdrop_custom',
         )
       ) {
         setIsHovering(true);
+      } else {
+        setIsHovering(false);
       }
     };
 
@@ -29,7 +31,7 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
       if (
         target.closest(
-          'a, button, [role="button"], #theme-switcher, .grid_btn_custom',
+          'a, button, [role="button"], #theme-switcher, .grid_btn_custom, .grid_backdrop_custom',
         )
       ) {
         setIsHovering(false);
