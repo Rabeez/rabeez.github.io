@@ -1,89 +1,10 @@
 "use client";
 
-import { JSX, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { gridItems } from "@/app/components/content";
 
 export default function ExpandingGrid() {
-  // Sample content for each grid item
-  type GridItemType = {
-    title: JSX.Element;
-    content: JSX.Element;
-  };
-  const gridItems: GridItemType[] = [
-    {
-      title: <div>Item 1</div>,
-      content: (
-        <div>
-          This is the expanded content for item 1. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 2</div>,
-      content: (
-        <div>
-          This is the expanded content for item 2. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 3</div>,
-      content: (
-        <div>
-          This is the expanded content for item 3. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 4</div>,
-      content: (
-        <div>
-          This is the expanded content for item 4. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 5</div>,
-      content: (
-        <div>
-          This is the expanded content for item 5. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 6</div>,
-      content: (
-        <div>
-          This is the expanded content for item 6. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 7</div>,
-      content: (
-        <div>
-          This is the expanded content for item 7. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 8</div>,
-      content: (
-        <div>
-          This is the expanded content for item 8. Click anywhere to collapse.
-        </div>
-      ),
-    },
-    {
-      title: <div>Item 9</div>,
-      content: (
-        <div>
-          This is the expanded content for item 9. Click anywhere to collapse.
-        </div>
-      ),
-    },
-  ];
-
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const handleClick = (index: number) => {
     // Disable click on "expanded" button
