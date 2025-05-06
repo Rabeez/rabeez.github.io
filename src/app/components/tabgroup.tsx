@@ -24,14 +24,6 @@ export default function SmoothTabs() {
     <div className="h-full w-full place-content-start">
       <div className="relative flex w-full space-x-4 py-2">
         {contentKeys.map((tab_name) => {
-          let tabClass =
-            "relative z-10 px-4 rounded-md transition-colors text-primary";
-          if (activeTab === tab_name) {
-            tabClass += " font-semibold";
-          } else {
-            tabClass += " ";
-          }
-
           return (
             <button
               key={tab_name}
@@ -39,7 +31,10 @@ export default function SmoothTabs() {
                 tabRefs.current[tab_name] = el;
               }}
               onClick={() => setActiveTab(tab_name)}
-              className={tabClass}
+              className={
+                (activeTab ? `font-semibold` : ``) +
+                " relative z-10 px-4 py-2 rounded-md transition-colors text-primary"
+              }
             >
               {tab_name}
               {activeTab === tab_name && (
