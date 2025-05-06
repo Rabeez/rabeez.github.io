@@ -9,7 +9,7 @@ interface ThemeProps {
 
 export default function ThemeController({ theme, handleToggle }: ThemeProps) {
   return (
-    <div className="fixed top-0 right-0 z-40 motion-preset-focus p-4 motion-duration-1000">
+    <div className="fixed top-0 right-0 z-40 p-4 motion-duration-1000">
       <div
         className="tooltip tooltip-left tooltip-primary"
         data-tip={"Set " + (theme == "mocha" ? "light" : "dark") + " mode"}

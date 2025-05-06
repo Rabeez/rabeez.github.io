@@ -55,7 +55,7 @@ export default function SmoothTabs() {
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
         />
       </div>
-      <div>
+      <div className="w-full">
         <AnimatePresence mode="sync">
           <motion.div
             key={activeTab}
