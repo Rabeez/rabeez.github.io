@@ -60,14 +60,18 @@ export default function SmoothTabs() {
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
         />
       </div>
-      <div className="">
-        <AnimatePresence mode="wait">
+      <div>
+        <AnimatePresence mode="sync">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, x: activeTab === "Bio" ? -20 : 20 }}
+            initial={{ opacity: 0, x: activeTab === "Bio" ? -30 : 30 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: activeTab === "Bio" ? -20 : 20 }}
-            transition={{ duration: 0.1 }}
+            exit={{ opacity: 0, x: activeTab === "Bio" ? -30 : 30 }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 20,
+            }}
             className="absolute h-fit min-h-fit w-full p-2"
           >
             {mainContent[activeTab]}
