@@ -39,10 +39,10 @@ export default function ExpandingGrid() {
                 layout
                 onClick={() => handleClick(index)}
                 className={
-                  isExpanded
-                    ? `absolute bg-base-200 h-full w-full top-0 left-0 z-50 p-4 text-base-content`
-                    : ` hover:bg-neutral-700/20 text-center grid_btn_custom` +
-                      " h-full w-full place-content-center overflow-hidden bg-neutral-700/10 p-6 transition-colors rounded-4xl border-1 border-neutral-700/50"
+                  (isExpanded
+                    ? `absolute bg-base-200 h-full w-full top-0 left-0 z-50 p-4 pt-15 pl-10 text-base-content prose-lg place-content-start`
+                    : ` hover:bg-neutral-700/20 bg-neutral-700/10 text-center grid_btn_custom font-bold place-content-center`) +
+                  " h-full w-full overflow-hidden p-6 transition-colors rounded-4xl border-1 border-neutral-700/50"
                 }
                 animate={{
                   borderRadius: isExpanded ? 32 : 32,
@@ -53,7 +53,10 @@ export default function ExpandingGrid() {
               >
                 <motion.h2
                   layout="position"
-                  className={`${isExpanded ? "mb-4 font-bold" : "text-lg"} text-2xl`}
+                  className={
+                    (isExpanded ? `mb-4 font-bold prose-headings` : `text-lg`) +
+                    " text-2xl"
+                  }
                 >
                   {item.title}
                 </motion.h2>
