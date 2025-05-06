@@ -41,7 +41,7 @@ export default function ExpandingGrid() {
                 className={
                   (isExpanded
                     ? `absolute bg-base-200 h-full w-full top-0 left-0 z-50 p-4 pt-15 pl-10 text-base-content prose-lg place-content-start`
-                    : `grid_btn_custom hover:bg-neutral-700/20 bg-neutral-700/10 text-center font-bold place-content-center`) +
+                    : `grid_btn_custom hover:bg-base-200/20 bg-base-200/10 text-center font-bold place-content-center`) +
                   " h-full w-full overflow-hidden p-6 transition-colors rounded-4xl border-1 border-neutral-700/50"
                 }
                 animate={{
