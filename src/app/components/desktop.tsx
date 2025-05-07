@@ -45,24 +45,6 @@ export default function DesktopComponent({
           </div>
           <div className="col-span-3 flex h-full w-full flex-col items-center justify-center p-20">
             <ExpandingGrid />
-            {/* <div className="h-full w-full"> */}
-            {/* <div className="col-span-1 grid h-full grid-rows-3 place-items-center p-10"> */}
-            {/*   <Modal modal_id="machine_learning" /> */}
-            {/*   <Modal modal_id="data_viz" /> */}
-            {/*   <Modal modal_id="translator" /> */}
-            {/* </div> */}
-            {/* <div className="col-span-1 grid grid-rows-4 place-items-center p-10"> */}
-            {/*   <Modal modal_id="specialized" /> */}
-            {/*   <Modal modal_id="data_pipes" /> */}
-            {/*   <Modal modal_id="causal" /> */}
-            {/*   <Modal modal_id="teaching" /> */}
-            {/* </div> */}
-            {/* <div className="col-span-1 grid grid-rows-3 place-items-center p-10"> */}
-            {/*   <Modal modal_id="engineering" /> */}
-            {/*   <Modal modal_id="custom_tools" /> */}
-            {/*   <Modal modal_id="web_dev" /> */}
-            {/* </div> */}
-            {/* </div> */}
           </div>
         </div>
       </div>

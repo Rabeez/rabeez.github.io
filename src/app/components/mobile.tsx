@@ -25,7 +25,7 @@ export default function MobileComponent({
           </h4>
           <h6 className="italic">
             <a
-              href="https://xkcd.com/1838"
+              href="https://m.xkcd.com/1838"
               target="_blank"
               className="text-custom-accent no-underline"
             >
