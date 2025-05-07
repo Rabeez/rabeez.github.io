@@ -56,7 +56,7 @@ export default function SmoothTabs() {
         />
       </div>
       <div className="w-full">
-        <AnimatePresence mode="sync">
+        <AnimatePresence mode="popLayout">
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, x: activeTab === "Bio" ? -30 : 30 }}
@@ -67,7 +67,7 @@ export default function SmoothTabs() {
               stiffness: 500,
               damping: 20,
             }}
-            className="absolute h-fit min-h-fit w-full p-2"
+            className="relative top-0 left-0 h-fit min-h-fit w-full p-2"
           >
             {mainContent[activeTab]}
           </motion.div>
