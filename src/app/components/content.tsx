@@ -148,8 +148,18 @@ export const gridItems: GridItem[] = [
     title: <div>Communication &amp; Teaching</div>,
     content: (
       <div>
-        <p>Multi-label Classification</p>
-        <p>Multi-label Classification</p>
+        <p>Software Engineering toolkit workshops (CLI, Git, Dev tools)</p>
+        <p>
+          Interactive Data Science teaching material (jupyter notebooks in
+          guided sessions)
+        </p>
+        <p>Intro to DS/ML workshops for generalist consultants</p>
+        <p>
+          Executive-level reports covering ML model performance, AB test results
+        </p>
+        <p>
+          Ran requirements-gathering workshops with operational domain experts
+        </p>
       </div>
     ),
   },
