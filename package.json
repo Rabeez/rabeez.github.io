@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.2",
     "@react-three/fiber": "^9.1.2",
     "@types/three": "^0.176.0",
     "lucide-react": "^0.503.0",
