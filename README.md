@@ -11,6 +11,7 @@ This is my personal webpage that links to my main online presence and lists some
 - React Three Fiber shader backdrop
 - Tailwind responsive layouts
 - Fully separate layout on mobile devices
+- Google Analytics for *basic* visitor information
 
 ## Notes
 
